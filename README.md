@@ -37,3 +37,9 @@ http://www.cnblogs.com/vitah/p/3612473.html
 
 安装web服务nginx
 
+模块划分
+  博文管理
+  留言管理
+  评论管理
+  图片管理
+  营销管理
