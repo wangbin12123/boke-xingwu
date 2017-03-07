@@ -29,3 +29,17 @@ http://blog.csdn.net/z1049186181/article/details/42607945
 
 根据这篇文章搭建环境
 
+安装分布式代码管理工具 git
+
+http://www.cnblogs.com/vitah/p/3612473.html
+
+根据文章配置github秘钥，并添加到github里面
+
+安装web服务nginx
+
+模块划分
+  博文管理
+  留言管理
+  评论管理
+  图片管理
+  营销管理
