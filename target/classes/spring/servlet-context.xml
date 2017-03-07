@@ -8,7 +8,7 @@
        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
   
 	<!-- 扫描 controller -->
-	<context:component-scan base-package="com.baomidou.springwind.controller" />
+	<context:component-scan base-package="cn.org.xingwu.controller" />
 
 	<!-- 定义视图解析器 -->
 	<bean id="velocityConfig"
@@ -66,7 +66,7 @@
 			<mvc:mapping path="/**" />
 			<bean class="com.baomidou.kisso.web.interceptor.SSOPermissionInterceptor">
 				<property name="authorization">
-					<bean class="com.baomidou.springwind.service.impl.PermissionServiceImpl"/>
+					<bean class="cn.org.xingwu.service.impl.PermissionServiceImpl"/>
 				</property>
 				<property name="illegalUrl" value="/error/illegalAccess.html"/>
 			</bean>
