@@ -24,7 +24,7 @@ public class AutoGeneratorHelper {
 	 * 测试 run 执行
 	 * </p>
 	 * <p>
-	 * 更多使用查看 http://mp.baomidou.com
+	 * 更多使用查看
 	 * </p>
 	 */
 	public static void main(String[] args) {
@@ -33,9 +33,9 @@ public class AutoGeneratorHelper {
 		// 全局配置
 		GlobalConfig gc = new GlobalConfig();
 		if (EnvUtil.isLinux()) {
-			gc.setOutputDir("/Users/hubin/springwind/");
+			gc.setOutputDir(System.getProperty("user.home") + "/autoCode/admin/");
 		} else {
-			gc.setOutputDir("D:/springwind/");
+			gc.setOutputDir("D:/autoCode/admin/");
 		}
 		gc.setFileOverride(true);
 //		gc.setActiveRecord(true);// 开启 activeRecord 模式
@@ -43,7 +43,7 @@ public class AutoGeneratorHelper {
 		gc.setEnableCache(false);// XML 二级缓存
 		gc.setBaseResultMap(true);// XML ResultMap
 		gc.setBaseColumnList(false);// XML columList
-		gc.setAuthor("Yanghu");
+		gc.setAuthor("xingwu");
 		mpg.setGlobalConfig(gc);
 
 		// 数据源配置
@@ -62,13 +62,13 @@ public class AutoGeneratorHelper {
 		strategy.setNaming(NamingStrategy.remove_prefix_and_camel);// 表名生成策略
 		// 字段名生成策略
 		strategy.setFieldNaming(NamingStrategy.underline_to_camel);
-		strategy.setSuperServiceImplClass("com.baomidou.springwind.service.support.BaseServiceImpl");
+		strategy.setSuperServiceImplClass("cn.org.xingwu.service.support.BaseServiceImpl");
 		mpg.setStrategy(strategy);
 
 		// 包配置
 		PackageConfig pc = new PackageConfig();
 //		pc.setModuleName("test");
-		pc.setParent("com.baomidou.springwind");// 自定义包路径
+		pc.setParent("cn.org.xingwu");// 自定义包路径
 		pc.setController("controller");// 这里是控制器包名，默认 web
 		mpg.setPackageInfo(pc);
 		// 执行生成
