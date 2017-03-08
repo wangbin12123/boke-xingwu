@@ -15,3 +15,13 @@ function formatDate(time) {
     var second = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
     return year + "年" + month + "月" + date + "日 " + hour + ":" + minute + ":" + second;
 }
+
+function alertSuccess(text){
+    toastr.options = {
+        closeButton: true,
+        progressBar: true,
+        showMethod: 'slideDown',
+        timeOut: 2000
+    };
+    toastr.success(text,'提示');
+}
