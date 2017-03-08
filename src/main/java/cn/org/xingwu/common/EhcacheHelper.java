@@ -44,6 +44,11 @@ public class EhcacheHelper {
 		return false;
 	}
 
+	public static boolean cleanAll() {
+		manager.clearAll();
+		return true;
+	}
+
 	public static void main(String[] args) {
 		String key = "key";
 		EhcacheHelper.put("mytest", key, "hello");

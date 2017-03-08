@@ -41,14 +41,14 @@ XingWu - 权限管理
         field: 'type',
         title: '类型',
         formatter: function (value, row, index) {
-            if (row.type == 0) {
+            if (row.type == 0 && row.pid == 0) {
                 return '<a class="btn btn-xs btn-primary">一级菜单</a> '
             }
-            if (row.type == 1) {
+            if (row.type == 0 && row.pid != 0) {
                 return '<a class="btn btn-xs btn-success">二级菜单</a> '
             }
-            if (row.type == 2) {
-                return '<a class="btn btn-xs btn-info">功能</a> '
+            if (row.type == 1) {
+                return '<a class="btn btn-xs btn-info">菜单功能</a> '
             }
         }
     }, {

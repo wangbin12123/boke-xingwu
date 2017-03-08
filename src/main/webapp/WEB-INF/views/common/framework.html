@@ -49,6 +49,7 @@
 			<div class="footer">
 				<div class="pull-right">
 					<a target="_blank" href="xingwu.org.cn">&copy;xingwu.org.cn</a>
+					<a target="_blank" style="color: #676a6c;" onclick="cleanCache();">清缓存</a>
 				</div>
 			</div>
 		</div>
@@ -65,6 +66,19 @@
 <script src="#springUrl('/static/js/plugins/pace/pace.min.js')"></script>
 <script src="#springUrl('/static/js/plugins/gritter/jquery.gritter.min.js')"></script>
 #include("/common/theme-config.html")
+<script type="text/javascript">
+
+    function cleanCache(){
+        $.ajax({
+            type: "GET",
+            url: "#springUrl('/sys/cache/clean')",
+            datatype: "json",
+            success: function (data) {
+                alertSuccess('清除完成');
+            }
+        });
+    }
+</script>
 #block("js")#end
 </body>
 </html>
