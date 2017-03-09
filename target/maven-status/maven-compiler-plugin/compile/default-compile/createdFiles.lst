@@ -15,6 +15,7 @@ cn/org/xingwu/common/EhcacheHelper.class
 cn/org/xingwu/service/impl/RolePermissionServiceImpl.class
 cn/org/xingwu/controller/EchartsController.class
 cn/org/xingwu/common/enums/OptionType.class
+cn/org/xingwu/controller/CacheController.class
 cn/org/xingwu/entity/vo/MenuVO.class
 cn/org/xingwu/mapper/SysLogMapper.class
 cn/org/xingwu/common/enums/UserType.class

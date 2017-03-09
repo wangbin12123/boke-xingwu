@@ -33,7 +33,8 @@
 
 	<div class="row border-bottom white-bg dashboard-header">
 		<div class="col-lg-10">
-			<h3>官方QQ群：235079513 <font color="red">版权归作者所有，永久开源免费！<a href="/donate.html">【点击捐赠】</a></font></h3>
+			<h3>QQ：875237285 <font color="red">版权归作者所有，永久开源免费！</font></h3>
+			<!--<h3>QQ：875237285 <font color="red">版权归作者所有，永久开源免费！<a href="/donate.html">【点击捐赠】</a></font></h3>-->
 			<ol class="breadcrumb">
 				<li><a href="index.html">首页</a></li>
 				#block("breadcrumb")#end
@@ -47,7 +48,8 @@
 			</div>
 			<div class="footer">
 				<div class="pull-right">
-					<a target="_blank" href="http://www.baomidou.com/">&copy;baomidou</a>
+					<a target="_blank" href="xingwu.org.cn">&copy;xingwu.org.cn</a>
+					<a target="_blank" style="color: #676a6c;" onclick="cleanCache();">清缓存</a>
 				</div>
 			</div>
 		</div>
@@ -56,6 +58,7 @@
    <!--右侧部分结束-->
 </div>
 <script src="#springUrl('/static/js/jquery-2.1.1.js')"></script>
+<script src="#springUrl('/static/js/common.js')"></script>
 <script src="#springUrl('/static/js/bootstrap.min.js')"></script>
 <script src="#springUrl('/static/js/plugins/metisMenu/jquery.metisMenu.js')"></script>
 <script src="#springUrl('/static/js/plugins/slimscroll/jquery.slimscroll.min.js')"></script>
@@ -63,7 +66,21 @@
 <script src="#springUrl('/static/js/inspinia.js')"></script>
 <script src="#springUrl('/static/js/plugins/pace/pace.min.js')"></script>
 <script src="#springUrl('/static/js/plugins/gritter/jquery.gritter.min.js')"></script>
+<script src="#springUrl('/static/js/plugins/toastr/toastr.min.js')"></script>
 #include("/common/theme-config.html")
+<script type="text/javascript">
+
+    function cleanCache(){
+        $.ajax({
+            type: "GET",
+            url: "#springUrl('/sys/cache/clean')",
+            datatype: "json",
+            success: function (data) {
+                alert('清除完成');
+            }
+        });
+    }
+</script>
 #block("js")#end
 </body>
 </html>
