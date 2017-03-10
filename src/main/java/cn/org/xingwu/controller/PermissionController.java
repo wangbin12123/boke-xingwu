@@ -101,11 +101,61 @@ public class PermissionController extends BaseController {
         }
         permission.setState(0);
         permission.setType(0);
-        permission.setSort(perTotal+1);
-        permission.setId((perTotal+1)*1L);
+        permission.setSort(perTotal + 1);
+        permission.setId((perTotal + 1) * 1L);
         rlt = permissionService.insert(permission);
         if (!rlt) {
             callbackFail("权限添加失败！！！");
+        }
+        return callbackSuccess(rlt);
+    }
+
+    /**
+     * 添加子菜单或权限实现
+     *
+     * @return
+     */
+    @com.baomidou.kisso.annotation.Permission("2003")
+    @RequestMapping("/child/add")
+    public String addChildPermission(Model model, Integer permId) {
+        model.addAttribute("permInfo", permissionService.selectById(permId));
+        return "/permission/child/save";
+    }
+
+    /**
+     * 添加系统菜单权限实现
+     *
+     * @return
+     */
+    @com.baomidou.kisso.annotation.Permission("2003")
+    @RequestMapping("/child/add/do")
+    @ResponseBody
+    public String saveChildPermission(Permission permission) {
+        boolean rlt = false;
+        EntityWrapper<Permission> wrapper = new EntityWrapper<Permission>();
+        Permission perm = new Permission();
+        wrapper.setEntity(perm);
+        perm.setPermCode(permission.getPermCode());
+        Permission check = permissionService.selectOne(wrapper);
+        if (check != null) {
+            return callbackFail("权限编码已存在！！！");
+        }
+        perm.setId(permission.getPid());
+        Integer perTotal = permissionService.selectCount(wrapper);
+        permission.setState(0);
+        Integer id = null;
+        if (perTotal == 1) {
+            id = perTotal;
+            Permission per = permissionService.selectById((permission.getPid() * 10) + id);
+            if (per != null) {
+                id = perTotal + 1;
+            }
+        }
+        permission.setSort(id);
+        permission.setId(((permission.getPid() * 10) + id) * 1L);
+        rlt = permissionService.insert(permission);
+        if (!rlt) {
+            return  callbackFail("权限添加失败！！！");
         }
         return callbackSuccess(rlt);
     }

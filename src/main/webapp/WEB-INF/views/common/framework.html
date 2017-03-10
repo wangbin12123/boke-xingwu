@@ -3,6 +3,7 @@
 <head>
 	#parse("/common/header.html")
 	<link href="#springUrl('/static/js/plugins/gritter/jquery.gritter.css')" rel="stylesheet">
+	<link href="#springUrl('/static/css/plugins/toastr/toastr.min.css')" rel="stylesheet">
 	#block("css")#end
 </head>
 <body>
@@ -74,9 +75,9 @@
         $.ajax({
             type: "GET",
             url: "#springUrl('/sys/cache/clean')",
-            datatype: "json",
+            dataType: "json",
             success: function (data) {
-                alert('清除完成');
+                alertSuccess('清除完成');
             }
         });
     }

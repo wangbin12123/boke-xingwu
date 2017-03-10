@@ -12,7 +12,7 @@ XingWu - 权限管理
 <div class="row">
     <div class=" text-right form-inline" style="background: #F3F3F4;">
         <div class="btn-group">
-            <a class="btn btn-info" onclick="addPermission()">添加权限</a>
+            <a class="btn btn-info" onclick="addPermission(null)">添加权限</a>
         </div>
     </div>
     <div class="row">
@@ -78,7 +78,7 @@ XingWu - 权限管理
         title: '操作',
         formatter: function (value, row, index) {
             var id = row.id;
-            return '<a class="btn btn-xs btn-primary" onclick="editPermission(' + "'" + id + "'" + ')"><i class="fa fa-pencil"></i>新增</a> '
+            return '<a class="btn btn-xs btn-primary" onclick="addPermission(' + "'" + id + "'" + ')"><i class="fa fa-pencil"></i>新增子权限</a> '
                 + '<a class="btn btn-xs btn-info" onclick="editPermission(' + "'" + id + "'" + ')"><i class="fa fa-pencil"></i>编辑</a> '
                 + '<a class="btn btn-xs btn-danger" onclick="delPermission(' + "'" + id + "'" + ')"><i class="fa fa-remove"></i>删除</a>';
         }
@@ -137,10 +137,17 @@ XingWu - 权限管理
         });
     }
 
-    function addPermission() {
-
-        var title = "新增权限";
-        var url = "#springUrl('/perm/permission/add')";
+    function addPermission(id) {
+        var url;
+        if (id == null) {
+            var title = "新增权限";
+            url = "#springUrl('/perm/permission/add')";
+        }
+        if (id != null) {
+            var title = "新增子权限或功能";
+            url = "#springUrl('/perm/permission/child/add')";
+            url += "?permId=" + id;
+        }
 
         //iframe层
         layer.open({

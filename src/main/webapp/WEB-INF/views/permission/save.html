@@ -8,7 +8,6 @@
 <body class="white-bg">
 <div class="ibox-content" style="width: 430px;">
    <form id="myForm" class="form-horizontal" autocomplete="off" data-validator-option="{theme:'default'}">
-   	   <input type="hidden" name="id" value="$!{role.id}">
        <div class="form-group"><label class="col-sm-2 control-label">权限名称 *</label>
       		<div class="col-sm-10">
 			<input type="text" class="form-control" name="title" placeholder="请输入权限名称" data-rule="角色:required;">
@@ -29,7 +28,7 @@
        <div class="hr-line-dashed"></div>
         <div class="form-group"><label class="col-sm-2 control-label">描述</label>
             <div class="col-sm-10">
-            <input type="text" class="form-control" name="description" value="$!{role.description}" placeholder="请输入简单描述" data-rule="描述:required;description">
+            <input type="text" class="form-control" name="description" placeholder="请输入简单描述" data-rule="描述:required:description;">
             </div>
         </div>
         <div class="hr-line-dashed"></div>

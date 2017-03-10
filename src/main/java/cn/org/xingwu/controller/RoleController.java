@@ -155,9 +155,6 @@ public class RoleController extends BaseController {
 	
 	/**
 	 * 更新权限列表
-	 * @param right
-	 * @param page
-	 * @param rows
 	 * @return
 	 * @throws IOException 
 	 */
