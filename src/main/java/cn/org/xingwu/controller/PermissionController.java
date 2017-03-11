@@ -84,6 +84,7 @@ public class PermissionController extends BaseController {
         EntityWrapper<Permission> wrapper = new EntityWrapper<Permission>();
         Permission perm = new Permission();
         perm.setPid(0L);
+//        T = Permission 泛型
         wrapper.setEntity(perm);
         Integer perTotal = permissionService.selectCount(wrapper);
         permission.setPid(0L);
@@ -158,5 +159,21 @@ public class PermissionController extends BaseController {
             return  callbackFail("权限添加失败！！！");
         }
         return callbackSuccess(rlt);
+    }
+
+    /**
+     * 添加系统菜单权限实现
+     *
+     * @return
+     */
+    @com.baomidou.kisso.annotation.Permission("2003")
+    @RequestMapping("/add/dos")
+    @ResponseBody
+    public String savesPermission(Permission permission) {
+        return callbackSuccess(true);
+    }
+
+    public String saPermission(Permission permission) {
+        return callbackSuccess(true);
     }
 }
